@@ -23,6 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     var gsDelegate: GameSceneDelegate?
     var spaceShip: SpaceShipNode!
     var gas: GasNode!
+    var circleNode: CircleNode!
+    var explosionNode: CircleNode!
     let bg = SKSpriteNode(imageNamed: "bg")
     var visibleMeteors = [SKSpriteNode]()
     var isGameOver = false
@@ -45,7 +47,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     
     func updateTimer() {
         if !isGameStarted { return }
-        score++
+        score += 1
         if score >= 1000 {
             let km = score/1000
             scoreLabel.text = String(format: "%.2f km", arguments: [km])
@@ -83,7 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             isGameOver = false
             isGameStarted = false
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("updateTimer"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(GameScene.updateTimer), userInfo: nil, repeats: true)
         
         scoreLabel = SKLabelNode(fontNamed: "Spy Agency")
         scoreLabel.position = CGPoint(x: 70, y: size.height - 40)
@@ -103,6 +105,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         gas = GasNode(position: CGPointMake(0, -spaceShip.size.height), color: UIColor.clearColor(), size: CGSize(width: 30.0, height: 40.5))
         gas.animate()
         spaceShip.addChild(gas)
+        
+        circleNode = CircleNode(radius: 1.0, position: CGPointZero)
+        circleNode.strokeColor = UIColor.redColor()
+        circleNode.fillColor = UIColor.redColor()
+        circleNode.zPosition = 2
+        addChild(circleNode)
     }
     
     func getRandomLane() -> CGFloat {
@@ -110,21 +118,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         switch lane {
         case 0:
             if leftLaneCount <= 2 {
-                leftLaneCount++
+                leftLaneCount += 1
                 return Lanes.Left
             } else {
                 return getRandomLane()
             }
         case 1:
             if middleLaneCount <= 2 {
-                middleLaneCount++
+                middleLaneCount += 1
                 return Lanes.Middle
             } else {
                 return getRandomLane()
             }
         case 2:
             if rightLaneCount <= 2 {
-                rightLaneCount++
+                rightLaneCount += 1
                 return Lanes.Right
             } else {
                 return getRandomLane()
@@ -162,11 +170,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         meteor.runAction(SKAction.repeatActionForever(actionRotate))
         meteor.runAction(SKAction.sequence([actionMove, actionMoveDone])) { () -> Void in
             if actualX == Lanes.Left {
-                self.leftLaneCount--
+                self.leftLaneCount -= 1
             } else if actualX == Lanes.Middle {
-                self.middleLaneCount--
+                self.middleLaneCount -= 1
             } else {
-                self.rightLaneCount--
+                self.rightLaneCount -= 1
             }
         }
         
@@ -186,18 +194,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         
         if ((firstBody.categoryBitMask & PhysicsCategory.Spaceship != 0) &&
             (secondBody.categoryBitMask & PhysicsCategory.Meteor != 0)) {
-                spaceshipDidCollideWithMeteor(firstBody.node as! SKSpriteNode, meteor: secondBody.node as! SKSpriteNode)
+                spaceshipDidCollideWithMeteor(firstBody.node as! SKSpriteNode, meteor: secondBody.node as! SKSpriteNode, contactPoint: contact.contactPoint)
         }
     }
     
-    func spaceshipDidCollideWithMeteor(spaceship:SKSpriteNode, meteor:SKSpriteNode) {
+    func spaceshipDidCollideWithMeteor(spaceship:SKSpriteNode, meteor:SKSpriteNode, contactPoint: CGPoint) {
         print("Hit")
         timer.invalidate()
-        gameOverView.toggleView(true, show: true) { () -> Void in }
-        isGameOver = true
-        isGameStarted = false
-        gameOverView.scoreLabel.text = scoreText
-        for node:SKSpriteNode in visibleMeteors {
+        
+        circleNode.position = contactPoint
+        circleNode.ripple(200, duration: 1) { (node) in
+            self.explosionNode = node
+            self.gameOverView.toggleView(true, show: true) { () -> Void in }
+        }
+        self.isGameOver = true
+        self.isGameStarted = false
+        self.gameOverView.scoreLabel.text = self.scoreText
+        for node:SKSpriteNode in self.visibleMeteors {
             node.speed = 0
         }
     }
@@ -279,6 +292,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         spaceShip.removeFromParent()
         gas.removeFromParent()
         bg.removeFromParent()
+        explosionNode.removeFromParent()
+        circleNode.removeFromParent()
         setupView(false)
     }
 }

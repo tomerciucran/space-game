@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0527F3F69A374D71D640A385 /* Pods_spacegame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC2DC083FA00779D9F7ED63 /* Pods_spacegame.framework */; };
+		F1499A661D80139C00371575 /* CircleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1499A651D80139C00371575 /* CircleNode.swift */; };
 		F16AB0AB1C50EAE600D5D7E6 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16AB0AA1C50EAE600D5D7E6 /* MainMenuView.xib */; };
 		F16AB0AF1C50EF2300D5D7E6 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AB0AE1C50EF2300D5D7E6 /* MainMenuView.swift */; };
 		F16AB0B11C50F41500D5D7E6 /* GetReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AB0B01C50F41500D5D7E6 /* GetReadyView.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		131E533027AEC1AA73895795 /* Pods-spacegame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spacegame.release.xcconfig"; path = "Pods/Target Support Files/Pods-spacegame/Pods-spacegame.release.xcconfig"; sourceTree = "<group>"; };
 		52AD69CC8676D2BAFA5ECAD5 /* Pods-spacegame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spacegame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spacegame/Pods-spacegame.debug.xcconfig"; sourceTree = "<group>"; };
+		F1499A651D80139C00371575 /* CircleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleNode.swift; sourceTree = "<group>"; };
 		F16AB0AA1C50EAE600D5D7E6 /* MainMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuView.xib; sourceTree = "<group>"; };
 		F16AB0AE1C50EF2300D5D7E6 /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		F16AB0B01C50F41500D5D7E6 /* GetReadyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetReadyView.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				F1F746481CA57CE600868A78 /* SpaceShipNode.swift */,
 				F1F7464C1CA5C1AC00868A78 /* GasNode.swift */,
+				F1499A651D80139C00371575 /* CircleNode.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				F1F746411CA5648400868A78 /* GameOverView.swift in Sources */,
 				F16AB0AF1C50EF2300D5D7E6 /* MainMenuView.swift in Sources */,
 				F16AB0B11C50F41500D5D7E6 /* GetReadyView.swift in Sources */,
+				F1499A661D80139C00371575 /* CircleNode.swift in Sources */,
 				F1F746461CA57BFF00868A78 /* Util.swift in Sources */,
 				F1E0C8981C4D3852003C0EBE /* GameScene.swift in Sources */,
 				F1F746441CA57AAD00868A78 /* Constants.swift in Sources */,
