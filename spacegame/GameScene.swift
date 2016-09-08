@@ -141,10 +141,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     
     func addMeteor() {
         
-        if isGameOver {
-            return
-        }
-        
         let meteor = SKSpriteNode(imageNamed: meteorArray[Int(Util.random(min: 0, max: 2))])
         let actualX: CGFloat
         actualX = getRandomLane()
@@ -195,21 +191,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     }
     
     func spaceshipDidCollideWithMeteor(spaceship:SKSpriteNode, meteor:SKSpriteNode, contactPoint: CGPoint) {
+        
+        if isGameOver { return }
         print("Hit")
         timer.invalidate()
-        
         explosion(contactPoint) { 
             self.gameOverView.toggleView(true, show: true) { () -> Void in }
             spaceship.removeFromParent()
             meteor.removeFromParent()
         }
-        
         self.isGameOver = true
         self.isGameStarted = false
         self.gameOverView.scoreLabel.text = self.scoreText
-        for node:SKSpriteNode in self.visibleMeteors {
-            node.speed = 0
-        }
     }
     
     // MARK: - GameOverDelegate
