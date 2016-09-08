@@ -93,7 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         physicsWorld.gravity = CGVectorMake(0, 0)
         physicsWorld.contactDelegate = self
         
-        bg.zPosition = -2
+        bg.zPosition = -13
         bg.size = frame.size
         bg.position = CGPoint(x: CGRectGetMidX(frame), y: CGRectGetMidY(frame))
         addChild(bg)
@@ -107,6 +107,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             spaceShip.addChild(gasNode)
             gas = gasNode
         }
+        
+        var emitterNode = StarfieldNode.initialize(frame, color: SKColor.lightGrayColor(), starSpeedY: 50, starsPerSecond: 1, starScaleFactor: 0.2)
+        emitterNode.zPosition = -10
+        addChild(emitterNode)
+        
+        emitterNode = StarfieldNode.initialize(frame, color: SKColor.grayColor(), starSpeedY: 30, starsPerSecond: 2, starScaleFactor: 0.1)
+        emitterNode.zPosition = -11
+        addChild(emitterNode)
+        
+        emitterNode = StarfieldNode.initialize(frame, color: SKColor.darkGrayColor(), starSpeedY: 15, starsPerSecond: 4, starScaleFactor: 0.05)
+        emitterNode.zPosition = -12
+        addChild(emitterNode)
     }
     
     func getRandomLane() -> CGFloat {

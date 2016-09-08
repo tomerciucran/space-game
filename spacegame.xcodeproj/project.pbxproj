@@ -17,6 +17,7 @@
 		F1D3F64A1D81701A0048B50A /* ExplosionParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */; };
 		F1D3F64B1D81701A0048B50A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6491D81701A0048B50A /* spark.png */; };
 		F1D3F6571D817B430048B50A /* GasParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6561D817B430048B50A /* GasParticle.sks */; };
+		F1D3F6591D8194D10048B50A /* StarfieldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D3F6581D8194D10048B50A /* StarfieldNode.swift */; };
 		F1E0C8941C4D3852003C0EBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0C8931C4D3852003C0EBE /* AppDelegate.swift */; };
 		F1E0C8981C4D3852003C0EBE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0C8971C4D3852003C0EBE /* GameScene.swift */; };
 		F1E0C89A1C4D3852003C0EBE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0C8991C4D3852003C0EBE /* GameViewController.swift */; };
@@ -44,6 +45,7 @@
 		F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExplosionParticle.sks; sourceTree = "<group>"; };
 		F1D3F6491D81701A0048B50A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		F1D3F6561D817B430048B50A /* GasParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GasParticle.sks; sourceTree = "<group>"; };
+		F1D3F6581D8194D10048B50A /* StarfieldNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarfieldNode.swift; sourceTree = "<group>"; };
 		F1E0C8901C4D3852003C0EBE /* spacegame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spacegame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E0C8931C4D3852003C0EBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E0C8971C4D3852003C0EBE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -87,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */,
-				F1D3F6491D81701A0048B50A /* spark.png */,
 				F1D3F6561D817B430048B50A /* GasParticle.sks */,
 			);
 			name = Particles;
@@ -142,6 +143,7 @@
 				F1F746431CA57AAD00868A78 /* Constants.swift */,
 				F1F746451CA57BFF00868A78 /* Util.swift */,
 				F1F7464A1CA5878C00868A78 /* UIView+Animation.swift */,
+				F1D3F6491D81701A0048B50A /* spark.png */,
 			);
 			path = spacegame;
 			sourceTree = "<group>";
@@ -151,6 +153,7 @@
 			children = (
 				F1F746481CA57CE600868A78 /* SpaceShipNode.swift */,
 				F1F7464C1CA5C1AC00868A78 /* GasNode.swift */,
+				F1D3F6581D8194D10048B50A /* StarfieldNode.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				F1F7464B1CA5878C00868A78 /* UIView+Animation.swift in Sources */,
 				F1E0C8941C4D3852003C0EBE /* AppDelegate.swift in Sources */,
 				F1F7464D1CA5C1AC00868A78 /* GasNode.swift in Sources */,
+				F1D3F6591D8194D10048B50A /* StarfieldNode.swift in Sources */,
 				F1F746491CA57CE600868A78 /* SpaceShipNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
