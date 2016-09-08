@@ -193,8 +193,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     func spaceshipDidCollideWithMeteor(spaceship:SKSpriteNode, meteor:SKSpriteNode, contactPoint: CGPoint) {
         
         if isGameOver { return }
-        print("Hit")
         timer.invalidate()
+        spaceship.removeAllActions()
         explosion(contactPoint) { 
             self.gameOverView.toggleView(true, show: true) { () -> Void in }
             spaceship.removeFromParent()
@@ -249,6 +249,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         guard let touch = touches.first else {
             return
         }
+        
         let touchLocation = touch.locationInNode(self)
         if isGetReadyScreenVisible {
             getReadyView.toggleView(true, show: false, completion: { () -> Void in
@@ -263,6 +264,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
                     ))
             })
         } else {
+            if isGameOver { return }
             spaceShip.screenTapAction(touchLocation)
         }
     }
