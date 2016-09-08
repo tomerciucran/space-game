@@ -23,8 +23,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     var gsDelegate: GameSceneDelegate?
     var spaceShip: SpaceShipNode!
     var gas: GasNode!
-    var circleNode: CircleNode!
-    var explosionNode: CircleNode!
     let bg = SKSpriteNode(imageNamed: "bg")
     var visibleMeteors = [SKSpriteNode]()
     var isGameOver = false
@@ -105,12 +103,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         gas = GasNode(position: CGPointMake(0, -spaceShip.size.height), color: UIColor.clearColor(), size: CGSize(width: 30.0, height: 40.5))
         gas.animate()
         spaceShip.addChild(gas)
-        
-        circleNode = CircleNode(radius: 1.0, position: CGPointZero)
-        circleNode.strokeColor = UIColor.redColor()
-        circleNode.fillColor = UIColor.redColor()
-        circleNode.zPosition = 2
-        addChild(circleNode)
     }
     
     func getRandomLane() -> CGFloat {
@@ -202,11 +194,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         print("Hit")
         timer.invalidate()
         
-        circleNode.position = contactPoint
-        circleNode.ripple(200, duration: 1) { (node) in
-            self.explosionNode = node
+        explosion(contactPoint) { 
             self.gameOverView.toggleView(true, show: true) { () -> Void in }
+            spaceship.removeFromParent()
+            meteor.removeFromParent()
         }
+        
         self.isGameOver = true
         self.isGameStarted = false
         self.gameOverView.scoreLabel.text = self.scoreText
@@ -277,6 +270,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         }
     }
     
+    func explosion(pos: CGPoint, completionHandler: () -> Void) {
+        if let emitterNode = SKEmitterNode(fileNamed: "ExplosionParticle.sks") {
+            emitterNode.particlePosition = pos
+            emitterNode.zPosition = 2
+            self.addChild(emitterNode)
+            self.runAction(SKAction.waitForDuration(2), completion: { emitterNode.removeFromParent(); completionHandler() })
+        }
+    }
+    
     func restart() {
         for node:SKSpriteNode in visibleMeteors {
             node.removeFromParent()
@@ -292,8 +294,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         spaceShip.removeFromParent()
         gas.removeFromParent()
         bg.removeFromParent()
-        explosionNode.removeFromParent()
-        circleNode.removeFromParent()
         setupView(false)
     }
 }
