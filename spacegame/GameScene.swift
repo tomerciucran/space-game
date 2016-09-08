@@ -86,7 +86,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(GameScene.updateTimer), userInfo: nil, repeats: true)
         
         scoreLabel = SKLabelNode(fontNamed: "Spy Agency")
-        scoreLabel.position = CGPoint(x: 70, y: size.height - 40)
+        scoreLabel.horizontalAlignmentMode = .Left
+        scoreLabel.position = CGPoint(x: 20, y: size.height - 40)
         addChild(scoreLabel)
         
         physicsWorld.gravity = CGVectorMake(0, 0)
