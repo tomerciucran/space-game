@@ -22,7 +22,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     
     var gsDelegate: GameSceneDelegate?
     var spaceShip: SpaceShipNode!
-    var gas: GasNode!
+    var gas: SKEmitterNode!
     let bg = SKSpriteNode(imageNamed: "bg")
     var visibleMeteors = [SKSpriteNode]()
     var isGameOver = false
@@ -100,9 +100,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         spaceShip = SpaceShipNode(position: CGPoint(x: size.width * 0.5, y: size.height * 0.17), color: UIColor.clearColor(), size: CGSize(width: 151, height: 152))
         addChild(spaceShip)
         
-        gas = GasNode(position: CGPointMake(0, -spaceShip.size.height), color: UIColor.clearColor(), size: CGSize(width: 30.0, height: 40.5))
-        gas.animate()
-        spaceShip.addChild(gas)
+        if let gasNode = SKEmitterNode(fileNamed: "GasParticle.sks") {
+            gasNode.position = CGPointMake(0, -spaceShip.size.height + 10)
+            gasNode.zPosition = -1
+            spaceShip.addChild(gasNode)
+            gas = gasNode
+        }
     }
     
     func getRandomLane() -> CGFloat {

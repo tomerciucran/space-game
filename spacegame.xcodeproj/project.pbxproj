@@ -16,6 +16,7 @@
 		F18756B11CA5DEC0005EB36A /* Spy Agency.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */; };
 		F1D3F64A1D81701A0048B50A /* ExplosionParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */; };
 		F1D3F64B1D81701A0048B50A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6491D81701A0048B50A /* spark.png */; };
+		F1D3F6571D817B430048B50A /* GasParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6561D817B430048B50A /* GasParticle.sks */; };
 		F1E0C8941C4D3852003C0EBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0C8931C4D3852003C0EBE /* AppDelegate.swift */; };
 		F1E0C8981C4D3852003C0EBE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0C8971C4D3852003C0EBE /* GameScene.swift */; };
 		F1E0C89A1C4D3852003C0EBE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0C8991C4D3852003C0EBE /* GameViewController.swift */; };
@@ -42,6 +43,7 @@
 		F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spy Agency.ttf"; sourceTree = "<group>"; };
 		F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExplosionParticle.sks; sourceTree = "<group>"; };
 		F1D3F6491D81701A0048B50A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		F1D3F6561D817B430048B50A /* GasParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GasParticle.sks; sourceTree = "<group>"; };
 		F1E0C8901C4D3852003C0EBE /* spacegame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = spacegame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1E0C8931C4D3852003C0EBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1E0C8971C4D3852003C0EBE /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -81,6 +83,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F1D3F6501D8179C30048B50A /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */,
+				F1D3F6491D81701A0048B50A /* spark.png */,
+				F1D3F6561D817B430048B50A /* GasParticle.sks */,
+			);
+			name = Particles;
+			sourceTree = "<group>";
+		};
+		F1D3F6511D8179DC0048B50A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */,
+				F16AB0B51C50F8A100D5D7E6 /* Kosmik-BoldOne.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		F1E0C8871C4D3851003C0EBE = {
 			isa = PBXGroup;
 			children = (
@@ -111,18 +132,16 @@
 				F16AB0B21C50F42400D5D7E6 /* GetReadyView.xib */,
 				F1F746401CA5648400868A78 /* GameOverView.swift */,
 				F1F7463E1CA5633E00868A78 /* GameOverView.xib */,
+				F1D3F6501D8179C30048B50A /* Particles */,
 				F1F746471CA57CBE00868A78 /* Nodes */,
+				F1D3F6511D8179DC0048B50A /* Fonts */,
 				F1E0C89B1C4D3852003C0EBE /* Main.storyboard */,
-				F16AB0B51C50F8A100D5D7E6 /* Kosmik-BoldOne.otf */,
-				F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */,
 				F1E0C89E1C4D3852003C0EBE /* Assets.xcassets */,
 				F1E0C8A01C4D3852003C0EBE /* LaunchScreen.storyboard */,
 				F1E0C8A31C4D3852003C0EBE /* Info.plist */,
 				F1F746431CA57AAD00868A78 /* Constants.swift */,
 				F1F746451CA57BFF00868A78 /* Util.swift */,
 				F1F7464A1CA5878C00868A78 /* UIView+Animation.swift */,
-				F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */,
-				F1D3F6491D81701A0048B50A /* spark.png */,
 			);
 			path = spacegame;
 			sourceTree = "<group>";
@@ -215,6 +234,7 @@
 				F1D3F64B1D81701A0048B50A /* spark.png in Resources */,
 				F18756B11CA5DEC0005EB36A /* Spy Agency.ttf in Resources */,
 				F16AB0AB1C50EAE600D5D7E6 /* MainMenuView.xib in Resources */,
+				F1D3F6571D817B430048B50A /* GasParticle.sks in Resources */,
 				F1E0C89D1C4D3852003C0EBE /* Main.storyboard in Resources */,
 				F1D3F64A1D81701A0048B50A /* ExplosionParticle.sks in Resources */,
 			);
