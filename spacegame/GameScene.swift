@@ -158,7 +158,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         meteor.physicsBody?.usesPreciseCollisionDetection = true
         meteor.setScale(0.6)
         addChild(meteor)
-        let actualDuration = Util.random(min: CGFloat(4.0), max: CGFloat(6.0))
+        let actualDuration = Util.random(min: CGFloat(2.0), max: CGFloat(5.0))
         
         let actionMove = SKAction.moveTo(CGPoint(x: actualX, y: -meteor.size.width/2), duration: NSTimeInterval(actualDuration))
         let actionRotate = SKAction.rotateByAngle(CGFloat(M_PI), duration:Double(Util.random(min: 1, max: 4)))
