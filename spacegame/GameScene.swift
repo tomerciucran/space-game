@@ -82,6 +82,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             isGetReadyScreenVisible = false
             isGameOver = false
             isGameStarted = false
+            
+            var emitterNode = StarfieldNode.initialize(frame, color: SKColor.lightGrayColor(), starSpeedY: 50, starsPerSecond: 1, starScaleFactor: 0.2)
+            emitterNode.zPosition = -10
+            addChild(emitterNode)
+            
+            emitterNode = StarfieldNode.initialize(frame, color: SKColor.grayColor(), starSpeedY: 30, starsPerSecond: 2, starScaleFactor: 0.1)
+            emitterNode.zPosition = -11
+            addChild(emitterNode)
+            
+            emitterNode = StarfieldNode.initialize(frame, color: SKColor.darkGrayColor(), starSpeedY: 15, starsPerSecond: 4, starScaleFactor: 0.05)
+            emitterNode.zPosition = -12
+            addChild(emitterNode)
         }
         timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: #selector(GameScene.updateTimer), userInfo: nil, repeats: true)
         
@@ -107,18 +119,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             spaceShip.addChild(gasNode)
             gas = gasNode
         }
-        
-        var emitterNode = StarfieldNode.initialize(frame, color: SKColor.lightGrayColor(), starSpeedY: 50, starsPerSecond: 1, starScaleFactor: 0.2)
-        emitterNode.zPosition = -10
-        addChild(emitterNode)
-        
-        emitterNode = StarfieldNode.initialize(frame, color: SKColor.grayColor(), starSpeedY: 30, starsPerSecond: 2, starScaleFactor: 0.1)
-        emitterNode.zPosition = -11
-        addChild(emitterNode)
-        
-        emitterNode = StarfieldNode.initialize(frame, color: SKColor.darkGrayColor(), starSpeedY: 15, starsPerSecond: 4, starScaleFactor: 0.05)
-        emitterNode.zPosition = -12
-        addChild(emitterNode)
     }
     
     func getRandomLane() -> CGFloat {
