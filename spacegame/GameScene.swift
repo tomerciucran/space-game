@@ -168,7 +168,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         addChild(label)
         
         let label2 = label.copy() as! SKLabelNode
-        let texts = ["Awesome!", "Keep it up!", "Excellent!", "Amazing!", "Good work!"]
+        let texts = ["Awesome!", "Keep it up!", "Excellent!", "Amazing!", "Good job!"]
         label2.position = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame) - 20)
         label2.text = texts[Int(Util.random(0...3))]
         label2.fontColor = UIColor(rgba: "#00ACF1")
