@@ -40,6 +40,7 @@
 	<array>
 		<string>Spy Agency.ttf</string>
 		<string>Kosmik-BoldOne.otf</string>
+        <string>Spy Agency Academy.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -13,6 +13,7 @@
 		F16AB0B11C50F41500D5D7E6 /* GetReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AB0B01C50F41500D5D7E6 /* GetReadyView.swift */; };
 		F16AB0B31C50F42400D5D7E6 /* GetReadyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16AB0B21C50F42400D5D7E6 /* GetReadyView.xib */; };
 		F16AB0B71C50F8A100D5D7E6 /* Kosmik-BoldOne.otf in Resources */ = {isa = PBXBuildFile; fileRef = F16AB0B51C50F8A100D5D7E6 /* Kosmik-BoldOne.otf */; };
+		F16F3FC31D82B7F900F275D5 /* Spy Agency Academy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16F3FC21D82B7F900F275D5 /* Spy Agency Academy.ttf */; };
 		F18756B11CA5DEC0005EB36A /* Spy Agency.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */; };
 		F1D3F64A1D81701A0048B50A /* ExplosionParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */; };
 		F1D3F64B1D81701A0048B50A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6491D81701A0048B50A /* spark.png */; };
@@ -41,6 +42,7 @@
 		F16AB0B01C50F41500D5D7E6 /* GetReadyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetReadyView.swift; sourceTree = "<group>"; };
 		F16AB0B21C50F42400D5D7E6 /* GetReadyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GetReadyView.xib; sourceTree = "<group>"; };
 		F16AB0B51C50F8A100D5D7E6 /* Kosmik-BoldOne.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kosmik-BoldOne.otf"; sourceTree = "<group>"; };
+		F16F3FC21D82B7F900F275D5 /* Spy Agency Academy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spy Agency Academy.ttf"; sourceTree = "<group>"; };
 		F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spy Agency.ttf"; sourceTree = "<group>"; };
 		F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExplosionParticle.sks; sourceTree = "<group>"; };
 		F1D3F6491D81701A0048B50A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */,
+				F16F3FC21D82B7F900F275D5 /* Spy Agency Academy.ttf */,
 				F16AB0B51C50F8A100D5D7E6 /* Kosmik-BoldOne.otf */,
 			);
 			name = Fonts;
@@ -234,6 +237,7 @@
 				F1E0C8A21C4D3852003C0EBE /* LaunchScreen.storyboard in Resources */,
 				F1E0C89F1C4D3852003C0EBE /* Assets.xcassets in Resources */,
 				F16AB0B71C50F8A100D5D7E6 /* Kosmik-BoldOne.otf in Resources */,
+				F16F3FC31D82B7F900F275D5 /* Spy Agency Academy.ttf in Resources */,
 				F1D3F64B1D81701A0048B50A /* spark.png in Resources */,
 				F18756B11CA5DEC0005EB36A /* Spy Agency.ttf in Resources */,
 				F16AB0AB1C50EAE600D5D7E6 /* MainMenuView.xib in Resources */,

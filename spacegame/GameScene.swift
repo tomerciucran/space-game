@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import UIColor_Hex_Swift
 
 protocol GameSceneDelegate: class {
     func showGameOver()
@@ -53,6 +54,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             scoreLabel.text = "\(Int(score)) m"
         }
         scoreText = scoreLabel.text
+        
+        if score % 1000 == 0 {
+            animateScoreLabel()
+        }
     }
     
     func setupMainMenu() {
@@ -149,6 +154,40 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             break
         }
         return 0
+    }
+    
+    func animateScoreLabel() {
+        let label = SKLabelNode(fontNamed: "Spy Agency Academy")
+        label.horizontalAlignmentMode = .Center
+        label.position = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame) + 20)
+        label.text = "\(Int(score/1000)) km"
+        label.fontColor = UIColor(rgba: "#EA5530")
+        label.setScale(0.4)
+        label.blendMode = .Multiply
+        label.alpha = 0
+        addChild(label)
+        
+        let label2 = label.copy() as! SKLabelNode
+        let texts = ["Awesome!", "Keep it up!", "Excellent!", "Amazing!", "Good work!"]
+        label2.position = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame) - 20)
+        label2.text = texts[Int(Util.random(0...3))]
+        label2.fontColor = UIColor(rgba: "#00ACF1")
+        addChild(label2)
+        
+        let fadeInAction = SKAction.fadeInWithDuration(0.2)
+        let increaseSizeAction = SKAction.scaleTo(1.4, duration: 0.2)
+        let waitAction = SKAction.waitForDuration(0.6)
+        let fadeOutAction = SKAction.fadeOutWithDuration(0.5)
+        
+        label.runAction(increaseSizeAction)
+        label.runAction(SKAction.sequence([fadeInAction, waitAction, fadeOutAction])) {
+            label.removeFromParent()
+        }
+        
+        label2.runAction(increaseSizeAction)
+        label2.runAction(SKAction.sequence([fadeInAction, waitAction, fadeOutAction])) {
+            label2.removeFromParent()
+        }
     }
     
     func addMeteor() {
