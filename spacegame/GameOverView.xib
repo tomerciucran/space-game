@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="spyagencyv3.ttf">
-            <string>SpyAgency</string>
+        <mutableArray key="Spy Agency.ttf">
             <string>SpyAgency</string>
         </mutableArray>
     </customFonts>
@@ -29,38 +28,25 @@
                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XZM-hS-0X4">
                     <rect key="frame" x="42" y="93" width="316" height="494"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="GAME OVER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JBd-Zu-rIo">
-                            <rect key="frame" x="20" y="20" width="276" height="61"/>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aV-DJ-BQz">
+                            <rect key="frame" x="95" y="350" width="126" height="124"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="276" id="3Wb-K9-2bG"/>
-                                <constraint firstAttribute="height" constant="61" id="es2-oQ-Cxu"/>
+                                <constraint firstAttribute="width" constant="157" id="bOq-0F-gkt"/>
+                                <constraint firstAttribute="height" constant="157" id="gLg-Ts-oVX"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="SpyAgency" family="Spy Agency" pointSize="38"/>
-                            <color key="textColor" red="0.078431372550000003" green="0.60784313729999995" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
+                            <state key="normal" image="restartButtonIcon"/>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="3Wb-K9-2bG"/>
-                                    <exclude reference="es2-oQ-Cxu"/>
+                                    <exclude reference="bOq-0F-gkt"/>
+                                    <exclude reference="gLg-Ts-oVX"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
-                                    <include reference="3Wb-K9-2bG"/>
-                                    <include reference="es2-oQ-Cxu"/>
+                                    <include reference="bOq-0F-gkt"/>
+                                    <include reference="gLg-Ts-oVX"/>
                                 </mask>
                             </variation>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxM-6i-86H">
-                            <rect key="frame" x="95" y="158" width="126" height="124"/>
-                            <state key="normal" image="mainmenuButtonIcon"/>
-                            <connections>
-                                <action selector="mainMenuButtonAction:" destination="-1" eventType="touchUpInside" id="yB3-sS-wFk"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aV-DJ-BQz">
-                            <rect key="frame" x="95" y="350" width="126" height="124"/>
-                            <state key="normal" image="restartButtonIcon"/>
                             <connections>
                                 <action selector="replayButtonAction:" destination="-1" eventType="touchUpInside" id="0e0-n1-Gml"/>
                             </connections>
@@ -68,71 +54,99 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999999 M" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1am-GJ-ZI2">
                             <rect key="frame" x="20" y="20" width="276" height="61"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="61" id="5ue-9H-NjY"/>
-                                <constraint firstAttribute="width" constant="276" id="eHc-lH-C1r"/>
+                                <constraint firstAttribute="height" constant="61" id="SNk-SR-szF"/>
+                                <constraint firstAttribute="width" constant="276" id="cL8-7z-cS4"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="SpyAgency" family="Spy Agency" pointSize="38"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="5ue-9H-NjY"/>
-                                    <exclude reference="eHc-lH-C1r"/>
+                                    <exclude reference="SNk-SR-szF"/>
+                                    <exclude reference="cL8-7z-cS4"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
-                                    <include reference="5ue-9H-NjY"/>
-                                    <include reference="eHc-lH-C1r"/>
+                                    <include reference="SNk-SR-szF"/>
+                                    <include reference="cL8-7z-cS4"/>
                                 </mask>
                             </variation>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxM-6i-86H">
+                            <rect key="frame" x="95" y="158" width="126" height="124"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="114" id="Qw1-eU-3aI"/>
+                                <constraint firstAttribute="width" constant="114" id="U0g-m1-Ivf"/>
+                            </constraints>
+                            <state key="normal" image="mainmenuButtonIcon"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Qw1-eU-3aI"/>
+                                    <exclude reference="U0g-m1-Ivf"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="constraints">
+                                    <include reference="Qw1-eU-3aI"/>
+                                    <include reference="U0g-m1-Ivf"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <action selector="mainMenuButtonAction:" destination="-1" eventType="touchUpInside" id="yB3-sS-wFk"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameOverImage" translatesAutoresizingMaskIntoConstraints="NO" id="ZFQ-f3-IKr">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="JBd-Zu-rIo" firstAttribute="centerX" secondItem="XZM-hS-0X4" secondAttribute="centerX" id="3hj-UH-RM8"/>
-                        <constraint firstItem="JBd-Zu-rIo" firstAttribute="top" secondItem="XZM-hS-0X4" secondAttribute="top" constant="20" id="DzL-6X-wxX"/>
-                        <constraint firstAttribute="bottom" secondItem="0aV-DJ-BQz" secondAttribute="bottom" constant="15" id="EGZ-Nz-ptL"/>
-                        <constraint firstItem="0aV-DJ-BQz" firstAttribute="top" secondItem="IxM-6i-86H" secondAttribute="bottom" constant="31" id="Fl3-HV-V1u"/>
+                        <constraint firstItem="1am-GJ-ZI2" firstAttribute="centerX" secondItem="XZM-hS-0X4" secondAttribute="centerX" id="04M-7P-03l"/>
+                        <constraint firstItem="IxM-6i-86H" firstAttribute="top" secondItem="1am-GJ-ZI2" secondAttribute="bottom" constant="11" id="3ed-ap-mrD"/>
+                        <constraint firstItem="ZFQ-f3-IKr" firstAttribute="top" secondItem="XZM-hS-0X4" secondAttribute="top" constant="11" id="B8n-Fa-Ajv"/>
                         <constraint firstAttribute="height" constant="494" id="Gpj-8c-nrr"/>
-                        <constraint firstItem="1am-GJ-ZI2" firstAttribute="top" secondItem="JBd-Zu-rIo" secondAttribute="bottom" constant="2" id="Wxg-OB-ccx"/>
-                        <constraint firstItem="IxM-6i-86H" firstAttribute="centerX" secondItem="XZM-hS-0X4" secondAttribute="centerX" id="XcO-IL-yZT"/>
-                        <constraint firstItem="1am-GJ-ZI2" firstAttribute="centerX" secondItem="XZM-hS-0X4" secondAttribute="centerX" id="dJ2-ah-LUz"/>
-                        <constraint firstItem="0aV-DJ-BQz" firstAttribute="centerX" secondItem="XZM-hS-0X4" secondAttribute="centerX" id="lh4-eu-HXQ"/>
+                        <constraint firstItem="0aV-DJ-BQz" firstAttribute="centerX" secondItem="XZM-hS-0X4" secondAttribute="centerX" id="jUO-H9-emn"/>
                         <constraint firstAttribute="width" constant="316" id="n80-bA-sw3"/>
+                        <constraint firstItem="IxM-6i-86H" firstAttribute="centerX" secondItem="XZM-hS-0X4" secondAttribute="centerX" id="qjm-Rh-aYe"/>
+                        <constraint firstItem="0aV-DJ-BQz" firstAttribute="top" secondItem="IxM-6i-86H" secondAttribute="bottom" constant="19" id="rR7-UM-mcq"/>
+                        <constraint firstItem="ZFQ-f3-IKr" firstAttribute="centerX" secondItem="XZM-hS-0X4" secondAttribute="centerX" id="uVu-6X-hhV"/>
+                        <constraint firstItem="1am-GJ-ZI2" firstAttribute="top" secondItem="ZFQ-f3-IKr" secondAttribute="bottom" constant="13" id="wvO-1e-Cud"/>
                     </constraints>
                     <variation key="default">
                         <mask key="subviews">
                             <exclude reference="1am-GJ-ZI2"/>
+                            <exclude reference="ZFQ-f3-IKr"/>
                         </mask>
                         <mask key="constraints">
                             <exclude reference="Gpj-8c-nrr"/>
                             <exclude reference="n80-bA-sw3"/>
-                            <exclude reference="Wxg-OB-ccx"/>
-                            <exclude reference="dJ2-ah-LUz"/>
-                            <exclude reference="3hj-UH-RM8"/>
-                            <exclude reference="DzL-6X-wxX"/>
-                            <exclude reference="XcO-IL-yZT"/>
-                            <exclude reference="EGZ-Nz-ptL"/>
-                            <exclude reference="Fl3-HV-V1u"/>
-                            <exclude reference="lh4-eu-HXQ"/>
+                            <exclude reference="B8n-Fa-Ajv"/>
+                            <exclude reference="uVu-6X-hhV"/>
+                            <exclude reference="04M-7P-03l"/>
+                            <exclude reference="wvO-1e-Cud"/>
+                            <exclude reference="3ed-ap-mrD"/>
+                            <exclude reference="qjm-Rh-aYe"/>
+                            <exclude reference="jUO-H9-emn"/>
+                            <exclude reference="rR7-UM-mcq"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
                         <mask key="subviews">
                             <include reference="1am-GJ-ZI2"/>
+                            <include reference="ZFQ-f3-IKr"/>
                         </mask>
                         <mask key="constraints">
                             <include reference="Gpj-8c-nrr"/>
                             <include reference="n80-bA-sw3"/>
-                            <include reference="Wxg-OB-ccx"/>
-                            <include reference="dJ2-ah-LUz"/>
-                            <include reference="3hj-UH-RM8"/>
-                            <include reference="DzL-6X-wxX"/>
-                            <include reference="XcO-IL-yZT"/>
-                            <include reference="EGZ-Nz-ptL"/>
-                            <include reference="Fl3-HV-V1u"/>
-                            <include reference="lh4-eu-HXQ"/>
+                            <include reference="B8n-Fa-Ajv"/>
+                            <include reference="uVu-6X-hhV"/>
+                            <include reference="04M-7P-03l"/>
+                            <include reference="wvO-1e-Cud"/>
+                            <include reference="3ed-ap-mrD"/>
+                            <include reference="qjm-Rh-aYe"/>
+                            <include reference="jUO-H9-emn"/>
+                            <include reference="rR7-UM-mcq"/>
                         </mask>
                     </variation>
                 </view>
@@ -175,7 +189,8 @@
         </view>
     </objects>
     <resources>
-        <image name="mainmenuButtonIcon" width="119" height="119"/>
-        <image name="restartButtonIcon" width="164" height="164"/>
+        <image name="gameOverImage" width="205" height="94"/>
+        <image name="mainmenuButtonIcon" width="238" height="238"/>
+        <image name="restartButtonIcon" width="238" height="238"/>
     </resources>
 </document>
