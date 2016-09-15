@@ -9,15 +9,15 @@
 import SpriteKit
 
 class StarfieldNode: SKEmitterNode {
-    static func initialize(frame: CGRect, color: SKColor, starSpeedY: CGFloat, starsPerSecond: CGFloat, starScaleFactor: CGFloat) -> SKEmitterNode {
+    static func initialize(_ frame: CGRect, color: SKColor, starSpeedY: CGFloat, starsPerSecond: CGFloat, starScaleFactor: CGFloat) -> SKEmitterNode {
         // Determine the time a star is visible on screen
-        let lifetime =  frame.size.height * UIScreen.mainScreen().scale / starSpeedY
+        let lifetime =  frame.size.height * UIScreen.main.scale / starSpeedY
         
         // Create the emitter node
         let emitterNode = SKEmitterNode()
         emitterNode.particleTexture = SKTexture(imageNamed: "star")
         emitterNode.particleBirthRate = starsPerSecond
-        emitterNode.particleColor = SKColor.lightGrayColor()
+        emitterNode.particleColor = SKColor.lightGray
         emitterNode.particleSpeed = starSpeedY * -1
         emitterNode.particleScale = starScaleFactor
         emitterNode.particleColorBlendFactor = 1
@@ -28,7 +28,7 @@ class StarfieldNode: SKEmitterNode {
         emitterNode.particlePositionRange = CGVector(dx: frame.size.width, dy: 0)
         
         // Fast forward the effect to start with a filled screen
-        emitterNode.advanceSimulationTime(NSTimeInterval(lifetime))
+        emitterNode.advanceSimulationTime(TimeInterval(lifetime))
         
         return emitterNode
     }

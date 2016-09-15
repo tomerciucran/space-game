@@ -22,7 +22,7 @@ class GameOverView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        NSBundle.mainBundle().loadNibNamed("GameOverView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("GameOverView", owner: self, options: nil)
         view.frame = frame
         addSubview(view)
     }
@@ -31,11 +31,11 @@ class GameOverView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBAction func mainMenuButtonAction(sender: AnyObject) {
+    @IBAction func mainMenuButtonAction(_ sender: AnyObject) {
         delegate?.goToMainMenu()
     }
     
-    @IBAction func replayButtonAction(sender: AnyObject) {
+    @IBAction func replayButtonAction(_ sender: AnyObject) {
         delegate?.replay()
     }
 }

@@ -7,7 +7,6 @@ target 'spacegame' do
 
 pod 'Fabric'
 pod 'Crashlytics'
-pod 'UIColor_Hex_Swift', '~> 1.9'
 
 end
 

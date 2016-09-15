@@ -22,7 +22,7 @@ class GasNode: SKSpriteNode {
     }
     
     func animate() {
-        runAction(SKAction.repeatActionForever(SKAction.animateWithTextures([SKTexture(imageNamed: "gas1"), SKTexture(imageNamed: "gas2"), SKTexture(imageNamed: "gas3")], timePerFrame: 0.1, resize: true, restore: true)))
+        run(SKAction.repeatForever(SKAction.animate(with: [SKTexture(imageNamed: "gas1"), SKTexture(imageNamed: "gas2"), SKTexture(imageNamed: "gas3")], timePerFrame: 0.1, resize: true, restore: true)))
     }
 
     required init?(coder aDecoder: NSCoder) {

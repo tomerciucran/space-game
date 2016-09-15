@@ -23,10 +23,10 @@ class MainMenuView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        NSBundle.mainBundle().loadNibNamed("MainMenuView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("MainMenuView", owner: self, options: nil)
         view.frame = frame
         
-        let nsObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+        let nsObject: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
         let version = nsObject as! String
         
         versionLabel.text = "v\(version)"
@@ -37,15 +37,15 @@ class MainMenuView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @IBAction func playButtonTapped(sender: AnyObject) {
+    @IBAction func playButtonTapped(_ sender: AnyObject) {
         delegate?.play()
     }
     
-    @IBAction func rateButtonTapped(sender: AnyObject) {
+    @IBAction func rateButtonTapped(_ sender: AnyObject) {
         delegate?.rate()
     }
     
-    @IBAction func rankingsButtonTapped(sender: AnyObject) {
+    @IBAction func rankingsButtonTapped(_ sender: AnyObject) {
         delegate?.rankings()
     }
 }

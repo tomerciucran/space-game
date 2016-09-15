@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 extension UIView {
-    func toggleView(animated: Bool, show: Bool, completion: (() -> Void)?) {
+    func toggleView(_ animated: Bool, show: Bool, completion: (() -> Void)?) {
         if animated {
-            UIView.animateWithDuration(0.8, animations: { () -> Void in
+            UIView.animate(withDuration: 0.8, animations: { () -> Void in
                 if show {
                     self.alpha = 1.0
                 } else {
@@ -22,7 +22,7 @@ extension UIView {
                     completion?()
             })
         } else {
-            UIView.animateWithDuration(0.0, animations: { () -> Void in
+            UIView.animate(withDuration: 0.0, animations: { () -> Void in
                 if show {
                     self.alpha = 1.0
                 } else {

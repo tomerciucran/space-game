@@ -14,11 +14,11 @@ class Util: NSObject {
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }
     
-    static func random(min min: CGFloat, max: CGFloat) -> CGFloat {
+    static func random(min: CGFloat, max: CGFloat) -> CGFloat {
         return random() * (max - min) + min
     }
     
-    static func random(range: Range<UInt32>) -> UInt32 {
-        return range.startIndex + arc4random_uniform(range.endIndex - range.startIndex + 1)
+    static func random(_ range: Range<UInt32>) -> UInt32 {
+        return range.lowerBound + arc4random_uniform(range.upperBound - range.lowerBound + 1)
     }
 }

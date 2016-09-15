@@ -14,7 +14,7 @@ class GetReadyView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        NSBundle.mainBundle().loadNibNamed("GetReadyView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("GetReadyView", owner: self, options: nil)
         view.frame = frame
         addSubview(view);
     }
