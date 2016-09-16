@@ -39,7 +39,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     var leftLaneCount = 0
     var middleLaneCount = 0
     var rightLaneCount = 0
-    var musicPlayer: MusicPlayer!
     
     override func didMove(to view: SKView) {
         setupView(true)
@@ -126,9 +125,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             gas = gasNode
         }
         
-        musicPlayer = MusicPlayer()
-        musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: MenuMusicSound, withExtension: nil)!)
-        musicPlayer.play()
+        MusicPlayer.sharedInstance.setupBackgroundPlayer(url: Bundle.main.url(forResource: MenuMusicSound, withExtension: nil)!)
+        MusicPlayer.sharedInstance.play()
     }
     
     func getRandomLane() -> CGFloat {
@@ -166,7 +164,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         label.horizontalAlignmentMode = .center
         label.position = CGPoint(x: frame.midX, y: frame.midY + 20)
         label.text = "\(Int(score/1000)) km"
-        label.fontColor = UIColor.white
+        label.fontColor = UIColor(red: 234, green: 85, blue: 48, alpha: 1)
         label.setScale(0.4)
         label.blendMode = .multiply
         label.alpha = 0
@@ -175,7 +173,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         let label2 = label.copy() as! SKLabelNode
         label2.position = CGPoint(x: frame.midX, y: frame.midY - 20)
         label2.text = texts[Int(Util.random(0..<4))]
-        label2.fontColor = UIColor.white
+        label2.fontColor = UIColor(red: 0, green: 172, blue: 241, alpha: 1)
         addChild(label2)
         
         let fadeInAction = SKAction.fadeIn(withDuration: 0.2)
@@ -196,7 +194,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     
     func addMeteor() {
         
-        let meteor = SKSpriteNode(imageNamed: meteorArray[Int(Util.random(min: 0, max: 2))])
+//        let meteor = SKSpriteNode(imageNamed: meteorArray[Int(Util.random(min: 0, max: 2))])
+        let meteor = SKSpriteNode(imageNamed: "meteorNew")
         let actualX: CGFloat
         actualX = getRandomLane()
 
@@ -250,11 +249,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         if isGameOver { return }
         timer.invalidate()
         spaceship.removeAllActions()
-        musicPlayer.stop()
-        run(musicPlayer.actionForSound(name: ExplosionSound))
+        MusicPlayer.sharedInstance.stop()
+        if let action = MusicPlayer.sharedInstance.actionForSound(name: ExplosionSound) { run(action) }
         explosion(contactPoint) { 
             self.gameOverView.toggleView(true, show: true) { () -> Void in }
-            self.run(self.musicPlayer.actionForSound(name: GameOverSound))
+            if let action = MusicPlayer.sharedInstance.actionForSound(name: GameOverSound) { self.run(action) }
             spaceship.removeFromParent()
             meteor.removeFromParent()
         }
@@ -267,8 +266,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     
     func goToMainMenu() {
         gameOverView.toggleView(true, show: false) { () -> Void in
-            self.musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: MenuMusicSound, withExtension: nil)!)
-            self.musicPlayer.play()
+            MusicPlayer.sharedInstance.setupBackgroundPlayer(url: Bundle.main.url(forResource: MenuMusicSound, withExtension: nil)!)
+            MusicPlayer.sharedInstance.play()
             self.mainMenuView.toggleView(true, show: true, completion: nil)
             self.isGameOver = true
             self.isGameStarted = false
@@ -316,8 +315,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
                 self.isGetReadyScreenVisible = false
                 self.isGameStarted = true
                 self.isGameOver = false
-                self.musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: GameMusicSound, withExtension: nil)!)
-                self.musicPlayer.play()
+                MusicPlayer.sharedInstance.setupBackgroundPlayer(url: Bundle.main.url(forResource: GameMusicSound, withExtension: nil)!)
+                MusicPlayer.sharedInstance.play()
                 self.run(SKAction.repeatForever(
                     SKAction.sequence([
                         SKAction.run(self.addMeteor),
@@ -327,7 +326,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             })
         } else {
             if isGameOver { return }
-            run(musicPlayer.actionForSound(name: SwooshSound))
+            if let action = MusicPlayer.sharedInstance.actionForSound(name: SwooshSound) { run(action) }
             spaceShip.screenTapAction(touchLocation)
         }
     }

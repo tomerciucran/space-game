@@ -17,7 +17,9 @@ protocol MainMenuDelegate: class {
 class MainMenuView: UIView {
 
     var delegate:MainMenuDelegate?
+    let userDefaults = UserDefaults.standard
     
+    @IBOutlet weak var muteButton: UIButton!
     @IBOutlet var view: UIView!    
     @IBOutlet weak var versionLabel: UILabel!
     override init(frame: CGRect) {
@@ -31,6 +33,9 @@ class MainMenuView: UIView {
         
         versionLabel.text = "v\(version)"
         addSubview(view)
+        
+        let mute = userDefaults.bool(forKey: muteKey)
+        muteButton.isSelected = mute
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -47,5 +52,15 @@ class MainMenuView: UIView {
     
     @IBAction func rankingsButtonTapped(_ sender: AnyObject) {
         delegate?.rankings()
+    }
+    
+    @IBAction func muteButtonTapped(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        userDefaults.set(sender.isSelected, forKey: muteKey)
+        if sender.isSelected {
+            MusicPlayer.sharedInstance.setVolume(value: 0.0)
+        } else {
+            MusicPlayer.sharedInstance.setVolume(value: 1.0)
+        }
     }
 }

@@ -25,3 +25,5 @@ let GameMusicSound = "game-music.wav"
 let ExplosionSound = "explosion.aif"
 let SwooshSound = "swoosh.wav"
 let GameOverSound = "game-over.wav"
+
+let muteKey = "mute"
