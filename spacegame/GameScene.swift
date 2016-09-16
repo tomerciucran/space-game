@@ -127,7 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         }
         
         musicPlayer = MusicPlayer()
-        musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: "menu-music", withExtension: ".wav")!)
+        musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: MenuMusicSound, withExtension: nil)!)
         musicPlayer.play()
     }
     
@@ -173,7 +173,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         addChild(label)
         
         let label2 = label.copy() as! SKLabelNode
-        let texts = ["Awesome!", "Keep it up!", "Excellent!", "Amazing!", "Good job!"]
         label2.position = CGPoint(x: frame.midX, y: frame.midY - 20)
         label2.text = texts[Int(Util.random(0..<4))]
         label2.fontColor = UIColor.white
@@ -252,10 +251,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         timer.invalidate()
         spaceship.removeAllActions()
         musicPlayer.stop()
-        run(musicPlayer.actionForSound(name: "explosion.aif"))
+        run(musicPlayer.actionForSound(name: ExplosionSound))
         explosion(contactPoint) { 
             self.gameOverView.toggleView(true, show: true) { () -> Void in }
-            self.run(self.musicPlayer.actionForSound(name: "game-over.wav"))
+            self.run(self.musicPlayer.actionForSound(name: GameOverSound))
             spaceship.removeFromParent()
             meteor.removeFromParent()
         }
@@ -268,7 +267,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     
     func goToMainMenu() {
         gameOverView.toggleView(true, show: false) { () -> Void in
-            self.musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: "menu-music", withExtension: ".wav")!)
+            self.musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: MenuMusicSound, withExtension: nil)!)
             self.musicPlayer.play()
             self.mainMenuView.toggleView(true, show: true, completion: nil)
             self.isGameOver = true
@@ -317,7 +316,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
                 self.isGetReadyScreenVisible = false
                 self.isGameStarted = true
                 self.isGameOver = false
-                self.musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: "game-music", withExtension: ".wav")!)
+                self.musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: GameMusicSound, withExtension: nil)!)
                 self.musicPlayer.play()
                 self.run(SKAction.repeatForever(
                     SKAction.sequence([
@@ -328,7 +327,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             })
         } else {
             if isGameOver { return }
-            run(musicPlayer.actionForSound(name: "swoosh.wav"))
+            run(musicPlayer.actionForSound(name: SwooshSound))
             spaceShip.screenTapAction(touchLocation)
         }
     }

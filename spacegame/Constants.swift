@@ -17,3 +17,11 @@ struct PhysicsCategory {
 let meteorArray = ["meteor1",
     "meteor2",
     "meteor3"]
+
+let texts = ["Awesome!", "Keep it up!", "Excellent!", "Amazing!", "Good job!"]
+
+let MenuMusicSound = "menu-music.wav"
+let GameMusicSound = "game-music.wav"
+let ExplosionSound = "explosion.aif"
+let SwooshSound = "swoosh.wav"
+let GameOverSound = "game-over.wav"

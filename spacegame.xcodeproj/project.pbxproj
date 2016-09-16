@@ -111,6 +111,16 @@
 			name = Sounds;
 			sourceTree = "<group>";
 		};
+		F196E63B1D8BFB090023DE97 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F1F746451CA57BFF00868A78 /* Util.swift */,
+				F1F746431CA57AAD00868A78 /* Constants.swift */,
+				F196E6391D8BF1A30023DE97 /* MusicPlayer.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		F1D3F6501D8179C30048B50A /* Particles */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 				F16AB0B21C50F42400D5D7E6 /* GetReadyView.xib */,
 				F1F746401CA5648400868A78 /* GameOverView.swift */,
 				F1F7463E1CA5633E00868A78 /* GameOverView.xib */,
+				F196E63B1D8BFB090023DE97 /* Utilities */,
 				F196E62A1D8BE6B60023DE97 /* Sounds */,
 				F1D3F6501D8179C30048B50A /* Particles */,
 				F1F746471CA57CBE00868A78 /* Nodes */,
@@ -168,11 +179,8 @@
 				F1E0C89E1C4D3852003C0EBE /* Assets.xcassets */,
 				F1E0C8A01C4D3852003C0EBE /* LaunchScreen.storyboard */,
 				F1E0C8A31C4D3852003C0EBE /* Info.plist */,
-				F1F746431CA57AAD00868A78 /* Constants.swift */,
-				F1F746451CA57BFF00868A78 /* Util.swift */,
 				F1F7464A1CA5878C00868A78 /* UIView+Animation.swift */,
 				F1D3F6491D81701A0048B50A /* spark.png */,
-				F196E6391D8BF1A30023DE97 /* MusicPlayer.swift */,
 			);
 			path = spacegame;
 			sourceTree = "<group>";
