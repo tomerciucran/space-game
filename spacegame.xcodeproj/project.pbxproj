@@ -15,6 +15,12 @@
 		F16AB0B71C50F8A100D5D7E6 /* Kosmik-BoldOne.otf in Resources */ = {isa = PBXBuildFile; fileRef = F16AB0B51C50F8A100D5D7E6 /* Kosmik-BoldOne.otf */; };
 		F16F3FC31D82B7F900F275D5 /* Spy Agency Academy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16F3FC21D82B7F900F275D5 /* Spy Agency Academy.ttf */; };
 		F18756B11CA5DEC0005EB36A /* Spy Agency.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */; };
+		F196E6301D8BE6C90023DE97 /* explosion.aif in Resources */ = {isa = PBXBuildFile; fileRef = F196E62B1D8BE6C90023DE97 /* explosion.aif */; };
+		F196E6311D8BE6C90023DE97 /* game-music.wav in Resources */ = {isa = PBXBuildFile; fileRef = F196E62C1D8BE6C90023DE97 /* game-music.wav */; };
+		F196E6321D8BE6C90023DE97 /* game-over.wav in Resources */ = {isa = PBXBuildFile; fileRef = F196E62D1D8BE6C90023DE97 /* game-over.wav */; };
+		F196E6331D8BE6C90023DE97 /* menu-music.wav in Resources */ = {isa = PBXBuildFile; fileRef = F196E62E1D8BE6C90023DE97 /* menu-music.wav */; };
+		F196E6341D8BE6C90023DE97 /* swoosh.wav in Resources */ = {isa = PBXBuildFile; fileRef = F196E62F1D8BE6C90023DE97 /* swoosh.wav */; };
+		F196E63A1D8BF1A30023DE97 /* MusicPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196E6391D8BF1A30023DE97 /* MusicPlayer.swift */; };
 		F1D3F64A1D81701A0048B50A /* ExplosionParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */; };
 		F1D3F64B1D81701A0048B50A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6491D81701A0048B50A /* spark.png */; };
 		F1D3F6571D817B430048B50A /* GasParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = F1D3F6561D817B430048B50A /* GasParticle.sks */; };
@@ -44,6 +50,12 @@
 		F16AB0B51C50F8A100D5D7E6 /* Kosmik-BoldOne.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kosmik-BoldOne.otf"; sourceTree = "<group>"; };
 		F16F3FC21D82B7F900F275D5 /* Spy Agency Academy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spy Agency Academy.ttf"; sourceTree = "<group>"; };
 		F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spy Agency.ttf"; sourceTree = "<group>"; };
+		F196E62B1D8BE6C90023DE97 /* explosion.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion.aif; sourceTree = "<group>"; };
+		F196E62C1D8BE6C90023DE97 /* game-music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-music.wav"; sourceTree = "<group>"; };
+		F196E62D1D8BE6C90023DE97 /* game-over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-over.wav"; sourceTree = "<group>"; };
+		F196E62E1D8BE6C90023DE97 /* menu-music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "menu-music.wav"; sourceTree = "<group>"; };
+		F196E62F1D8BE6C90023DE97 /* swoosh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swoosh.wav; sourceTree = "<group>"; };
+		F196E6391D8BF1A30023DE97 /* MusicPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayer.swift; sourceTree = "<group>"; };
 		F1D3F6481D81701A0048B50A /* ExplosionParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ExplosionParticle.sks; sourceTree = "<group>"; };
 		F1D3F6491D81701A0048B50A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		F1D3F6561D817B430048B50A /* GasParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GasParticle.sks; sourceTree = "<group>"; };
@@ -85,6 +97,18 @@
 				131E533027AEC1AA73895795 /* Pods-spacegame.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F196E62A1D8BE6B60023DE97 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				F196E62B1D8BE6C90023DE97 /* explosion.aif */,
+				F196E62C1D8BE6C90023DE97 /* game-music.wav */,
+				F196E62D1D8BE6C90023DE97 /* game-over.wav */,
+				F196E62E1D8BE6C90023DE97 /* menu-music.wav */,
+				F196E62F1D8BE6C90023DE97 /* swoosh.wav */,
+			);
+			name = Sounds;
 			sourceTree = "<group>";
 		};
 		F1D3F6501D8179C30048B50A /* Particles */ = {
@@ -136,6 +160,7 @@
 				F16AB0B21C50F42400D5D7E6 /* GetReadyView.xib */,
 				F1F746401CA5648400868A78 /* GameOverView.swift */,
 				F1F7463E1CA5633E00868A78 /* GameOverView.xib */,
+				F196E62A1D8BE6B60023DE97 /* Sounds */,
 				F1D3F6501D8179C30048B50A /* Particles */,
 				F1F746471CA57CBE00868A78 /* Nodes */,
 				F1D3F6511D8179DC0048B50A /* Fonts */,
@@ -147,6 +172,7 @@
 				F1F746451CA57BFF00868A78 /* Util.swift */,
 				F1F7464A1CA5878C00868A78 /* UIView+Animation.swift */,
 				F1D3F6491D81701A0048B50A /* spark.png */,
+				F196E6391D8BF1A30023DE97 /* MusicPlayer.swift */,
 			);
 			path = spacegame;
 			sourceTree = "<group>";
@@ -235,14 +261,19 @@
 			files = (
 				F1F7463F1CA5633E00868A78 /* GameOverView.xib in Resources */,
 				F16AB0B31C50F42400D5D7E6 /* GetReadyView.xib in Resources */,
+				F196E6341D8BE6C90023DE97 /* swoosh.wav in Resources */,
 				F1E0C8A21C4D3852003C0EBE /* LaunchScreen.storyboard in Resources */,
 				F1E0C89F1C4D3852003C0EBE /* Assets.xcassets in Resources */,
 				F16AB0B71C50F8A100D5D7E6 /* Kosmik-BoldOne.otf in Resources */,
 				F16F3FC31D82B7F900F275D5 /* Spy Agency Academy.ttf in Resources */,
+				F196E6311D8BE6C90023DE97 /* game-music.wav in Resources */,
+				F196E6321D8BE6C90023DE97 /* game-over.wav in Resources */,
 				F1D3F64B1D81701A0048B50A /* spark.png in Resources */,
 				F18756B11CA5DEC0005EB36A /* Spy Agency.ttf in Resources */,
+				F196E6301D8BE6C90023DE97 /* explosion.aif in Resources */,
 				F16AB0AB1C50EAE600D5D7E6 /* MainMenuView.xib in Resources */,
 				F1D3F6571D817B430048B50A /* GasParticle.sks in Resources */,
+				F196E6331D8BE6C90023DE97 /* menu-music.wav in Resources */,
 				F1E0C89D1C4D3852003C0EBE /* Main.storyboard in Resources */,
 				F1D3F64A1D81701A0048B50A /* ExplosionParticle.sks in Resources */,
 			);
@@ -320,6 +351,7 @@
 				F16AB0AF1C50EF2300D5D7E6 /* MainMenuView.swift in Sources */,
 				F16AB0B11C50F41500D5D7E6 /* GetReadyView.swift in Sources */,
 				F1F746461CA57BFF00868A78 /* Util.swift in Sources */,
+				F196E63A1D8BF1A30023DE97 /* MusicPlayer.swift in Sources */,
 				F1E0C8981C4D3852003C0EBE /* GameScene.swift in Sources */,
 				F1F746441CA57AAD00868A78 /* Constants.swift in Sources */,
 				F1E0C89A1C4D3852003C0EBE /* GameViewController.swift in Sources */,

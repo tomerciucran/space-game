@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 protocol GameSceneDelegate: class {
     func showGameOver()
@@ -38,6 +39,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     var leftLaneCount = 0
     var middleLaneCount = 0
     var rightLaneCount = 0
+    var musicPlayer: MusicPlayer!
     
     override func didMove(to view: SKView) {
         setupView(true)
@@ -123,6 +125,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             spaceShip.addChild(gasNode)
             gas = gasNode
         }
+        
+        musicPlayer = MusicPlayer()
+        musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: "menu-music", withExtension: ".wav")!)
+        musicPlayer.play()
     }
     
     func getRandomLane() -> CGFloat {
@@ -245,8 +251,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         if isGameOver { return }
         timer.invalidate()
         spaceship.removeAllActions()
+        musicPlayer.stop()
+        run(musicPlayer.actionForSound(name: "explosion.aif"))
         explosion(contactPoint) { 
             self.gameOverView.toggleView(true, show: true) { () -> Void in }
+            self.run(self.musicPlayer.actionForSound(name: "game-over.wav"))
             spaceship.removeFromParent()
             meteor.removeFromParent()
         }
@@ -259,6 +268,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     
     func goToMainMenu() {
         gameOverView.toggleView(true, show: false) { () -> Void in
+            self.musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: "menu-music", withExtension: ".wav")!)
+            self.musicPlayer.play()
             self.mainMenuView.toggleView(true, show: true, completion: nil)
             self.isGameOver = true
             self.isGameStarted = false
@@ -306,6 +317,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
                 self.isGetReadyScreenVisible = false
                 self.isGameStarted = true
                 self.isGameOver = false
+                self.musicPlayer.setupBackgroundPlayer(url: Bundle.main.url(forResource: "game-music", withExtension: ".wav")!)
+                self.musicPlayer.play()
                 self.run(SKAction.repeatForever(
                     SKAction.sequence([
                         SKAction.run(self.addMeteor),
@@ -315,6 +328,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             })
         } else {
             if isGameOver { return }
+            run(musicPlayer.actionForSound(name: "swoosh.wav"))
             spaceShip.screenTapAction(touchLocation)
         }
     }
