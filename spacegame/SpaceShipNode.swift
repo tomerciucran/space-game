@@ -17,10 +17,9 @@ class SpaceShipNode: SKSpriteNode {
     }
     
     convenience init(position: CGPoint, color: UIColor, size: CGSize) {
-        self.init(texture: SKTexture(imageNamed: "rocket"), color: color, size: size)
+        self.init(texture: SKTexture(imageNamed: "ship"), color: color, size: size)
         self.position = position
         physicsBody = SKPhysicsBody(rectangleOf: size)
-        physicsBody?.isDynamic = true
         physicsBody?.categoryBitMask = PhysicsCategory.Spaceship
         physicsBody?.contactTestBitMask = PhysicsCategory.Meteor
         physicsBody?.collisionBitMask = PhysicsCategory.None
@@ -54,18 +53,25 @@ class SpaceShipNode: SKSpriteNode {
     
     func moveShip(_ fromLane: CGFloat, toLane: CGFloat) {
         let actionMove = SKAction.moveTo(x: toLane, duration: 0.4)
-        let actionRotate: SKAction
-        let actionRotateBack: SKAction
+//        let actionRotate: SKAction
+//        let actionRotateBack: SKAction
+        let textureAction: SKAction
+        let textureBackAction: SKAction
+        let waitAction = SKAction.wait(forDuration: 0.4)
         if fromLane < toLane {
-            actionRotate = SKAction.rotate(byAngle: CGFloat(-M_PI_4/2), duration: 0.3)
-            actionRotateBack = SKAction.rotate(byAngle: CGFloat(M_PI_4/2), duration: 0.3)
+            textureAction = SKAction.setTexture(SKTexture(imageNamed: "shipRight"))
+            textureBackAction = SKAction.setTexture(SKTexture(imageNamed: "ship"))
+//            actionRotate = SKAction.rotate(byAngle: CGFloat(-M_PI_4/2), duration: 0.3)
+//            actionRotateBack = SKAction.rotate(byAngle: CGFloat(M_PI_4/2), duration: 0.3)
         } else {
-            actionRotate = SKAction.rotate(byAngle: CGFloat(M_PI_4/2), duration: 0.3)
-            actionRotateBack = SKAction.rotate(byAngle: CGFloat(-M_PI_4/2), duration: 0.3)
+            textureAction = SKAction.setTexture(SKTexture(imageNamed: "shipLeft"))
+            textureBackAction = SKAction.setTexture(SKTexture(imageNamed: "ship"))
+//            actionRotate = SKAction.rotate(byAngle: CGFloat(M_PI_4/2), duration: 0.3)
+//            actionRotateBack = SKAction.rotate(byAngle: CGFloat(-M_PI_4/2), duration: 0.3)
         }
         
         run(actionMove)
-        run(SKAction.sequence([actionRotate, actionRotateBack]))
+        run(SKAction.sequence([textureAction, waitAction, textureBackAction]))
         currentLane = toLane
     }
 }

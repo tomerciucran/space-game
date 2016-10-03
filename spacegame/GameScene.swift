@@ -42,6 +42,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     
     override func didMove(to view: SKView) {
         setupView(true)
+        print(frame)
     }
     
     func updateTimer() {
@@ -114,6 +115,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         bg.size = frame.size
         bg.position = CGPoint(x: frame.midX, y: frame.midY)
         addChild(bg)
+        
+//        gradientOverlay.zPosition = -13
+//        gradientOverlay.size = CGSize(width: frame.size.width, height: frame.size.height / 2)
+//        gradientOverlay.position = CGPoint(x: frame.midX, y: 0)
+//        gradientOverlay.alpha = 0.5
+//        addChild(gradientOverlay)
+//        
+        bg.alpha = 0.5
+        bg.run(SKAction.sequence([SKAction.colorize(with: UIColor.blue, colorBlendFactor: 0.5, duration: 5), SKAction.colorize(with: UIColor.red, colorBlendFactor: 0.5, duration: 5), SKAction.colorize(with: UIColor.green, colorBlendFactor: 0.5, duration: 5)]))
         
         spaceShip = SpaceShipNode(position: CGPoint(x: size.width * 0.5, y: size.height * 0.17), color: UIColor.clear, size: CGSize(width: 151, height: 152))
         addChild(spaceShip)
@@ -194,14 +204,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     
     func addMeteor() {
         
-//        let meteor = SKSpriteNode(imageNamed: meteorArray[Int(Util.random(min: 0, max: 2))])
-        let meteor = SKSpriteNode(imageNamed: "meteorNew")
+        let meteor = SKSpriteNode(imageNamed: meteorArray[Int(Util.random(min: 0, max: 2))])
+//        let meteor = SKSpriteNode(imageNamed: "meteorNew")
         let actualX: CGFloat
         actualX = getRandomLane()
 
         meteor.position = CGPoint(x: actualX, y: size.height + meteor.size.height)
         meteor.physicsBody = SKPhysicsBody(circleOfRadius: meteor.size.width/2)
-        meteor.physicsBody?.isDynamic = true
         meteor.physicsBody?.categoryBitMask = PhysicsCategory.Meteor
         meteor.physicsBody?.contactTestBitMask = PhysicsCategory.Spaceship
         meteor.physicsBody?.collisionBitMask = PhysicsCategory.None
