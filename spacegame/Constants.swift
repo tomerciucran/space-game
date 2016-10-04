@@ -25,7 +25,7 @@ let colors = [UIColor.red, UIColor.blue, UIColor.green, UIColor.orange, UIColor.
 
 let MenuMusicSound = "menu-music.wav"
 let GameMusicSound = "game-music.wav"
-let ExplosionSound = "explosion.aif"
+let ExplosionSound = "explosion.mp3"
 let SwooshSound = "swoosh.wav"
 let GameOverSound = "game-over.wav"
 

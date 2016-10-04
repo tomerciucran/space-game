@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0527F3F69A374D71D640A385 /* Pods_spacegame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC2DC083FA00779D9F7ED63 /* Pods_spacegame.framework */; };
+		F12A84F41DA4017E009A8B24 /* game-music.wav in Resources */ = {isa = PBXBuildFile; fileRef = F12A84F31DA4017E009A8B24 /* game-music.wav */; };
+		F12A84F61DA401B9009A8B24 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F12A84F51DA401B9009A8B24 /* explosion.mp3 */; };
 		F16AB0AB1C50EAE600D5D7E6 /* MainMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F16AB0AA1C50EAE600D5D7E6 /* MainMenuView.xib */; };
 		F16AB0AF1C50EF2300D5D7E6 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AB0AE1C50EF2300D5D7E6 /* MainMenuView.swift */; };
 		F16AB0B11C50F41500D5D7E6 /* GetReadyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16AB0B01C50F41500D5D7E6 /* GetReadyView.swift */; };
@@ -16,7 +18,6 @@
 		F16F3FC31D82B7F900F275D5 /* Spy Agency Academy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16F3FC21D82B7F900F275D5 /* Spy Agency Academy.ttf */; };
 		F18756B11CA5DEC0005EB36A /* Spy Agency.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */; };
 		F196E6301D8BE6C90023DE97 /* explosion.aif in Resources */ = {isa = PBXBuildFile; fileRef = F196E62B1D8BE6C90023DE97 /* explosion.aif */; };
-		F196E6311D8BE6C90023DE97 /* game-music.wav in Resources */ = {isa = PBXBuildFile; fileRef = F196E62C1D8BE6C90023DE97 /* game-music.wav */; };
 		F196E6321D8BE6C90023DE97 /* game-over.wav in Resources */ = {isa = PBXBuildFile; fileRef = F196E62D1D8BE6C90023DE97 /* game-over.wav */; };
 		F196E6331D8BE6C90023DE97 /* menu-music.wav in Resources */ = {isa = PBXBuildFile; fileRef = F196E62E1D8BE6C90023DE97 /* menu-music.wav */; };
 		F196E6341D8BE6C90023DE97 /* swoosh.wav in Resources */ = {isa = PBXBuildFile; fileRef = F196E62F1D8BE6C90023DE97 /* swoosh.wav */; };
@@ -43,6 +44,8 @@
 /* Begin PBXFileReference section */
 		131E533027AEC1AA73895795 /* Pods-spacegame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spacegame.release.xcconfig"; path = "Pods/Target Support Files/Pods-spacegame/Pods-spacegame.release.xcconfig"; sourceTree = "<group>"; };
 		52AD69CC8676D2BAFA5ECAD5 /* Pods-spacegame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-spacegame.debug.xcconfig"; path = "Pods/Target Support Files/Pods-spacegame/Pods-spacegame.debug.xcconfig"; sourceTree = "<group>"; };
+		F12A84F31DA4017E009A8B24 /* game-music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-music.wav"; sourceTree = "<group>"; };
+		F12A84F51DA401B9009A8B24 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		F16AB0AA1C50EAE600D5D7E6 /* MainMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuView.xib; sourceTree = "<group>"; };
 		F16AB0AE1C50EF2300D5D7E6 /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		F16AB0B01C50F41500D5D7E6 /* GetReadyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetReadyView.swift; sourceTree = "<group>"; };
@@ -51,7 +54,6 @@
 		F16F3FC21D82B7F900F275D5 /* Spy Agency Academy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spy Agency Academy.ttf"; sourceTree = "<group>"; };
 		F18756B01CA5DEC0005EB36A /* Spy Agency.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spy Agency.ttf"; sourceTree = "<group>"; };
 		F196E62B1D8BE6C90023DE97 /* explosion.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = explosion.aif; sourceTree = "<group>"; };
-		F196E62C1D8BE6C90023DE97 /* game-music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-music.wav"; sourceTree = "<group>"; };
 		F196E62D1D8BE6C90023DE97 /* game-over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "game-over.wav"; sourceTree = "<group>"; };
 		F196E62E1D8BE6C90023DE97 /* menu-music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "menu-music.wav"; sourceTree = "<group>"; };
 		F196E62F1D8BE6C90023DE97 /* swoosh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = swoosh.wav; sourceTree = "<group>"; };
@@ -102,8 +104,9 @@
 		F196E62A1D8BE6B60023DE97 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				F12A84F51DA401B9009A8B24 /* explosion.mp3 */,
 				F196E62B1D8BE6C90023DE97 /* explosion.aif */,
-				F196E62C1D8BE6C90023DE97 /* game-music.wav */,
+				F12A84F31DA4017E009A8B24 /* game-music.wav */,
 				F196E62D1D8BE6C90023DE97 /* game-over.wav */,
 				F196E62E1D8BE6C90023DE97 /* menu-music.wav */,
 				F196E62F1D8BE6C90023DE97 /* swoosh.wav */,
@@ -274,11 +277,12 @@
 				F1E0C89F1C4D3852003C0EBE /* Assets.xcassets in Resources */,
 				F16AB0B71C50F8A100D5D7E6 /* Kosmik-BoldOne.otf in Resources */,
 				F16F3FC31D82B7F900F275D5 /* Spy Agency Academy.ttf in Resources */,
-				F196E6311D8BE6C90023DE97 /* game-music.wav in Resources */,
 				F196E6321D8BE6C90023DE97 /* game-over.wav in Resources */,
+				F12A84F41DA4017E009A8B24 /* game-music.wav in Resources */,
 				F1D3F64B1D81701A0048B50A /* spark.png in Resources */,
 				F18756B11CA5DEC0005EB36A /* Spy Agency.ttf in Resources */,
 				F196E6301D8BE6C90023DE97 /* explosion.aif in Resources */,
+				F12A84F61DA401B9009A8B24 /* explosion.mp3 in Resources */,
 				F16AB0AB1C50EAE600D5D7E6 /* MainMenuView.xib in Resources */,
 				F1D3F6571D817B430048B50A /* GasParticle.sks in Resources */,
 				F196E6331D8BE6C90023DE97 /* menu-music.wav in Resources */,
