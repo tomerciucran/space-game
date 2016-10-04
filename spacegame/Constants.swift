@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct PhysicsCategory {
     static let None     : UInt32 = 0
@@ -20,6 +21,8 @@ let meteorArray = ["meteor1",
 
 let texts = ["Awesome!", "Keep it up!", "Excellent!", "Amazing!", "Good job!"]
 
+let colors = [UIColor.red, UIColor.blue, UIColor.green, UIColor.orange, UIColor.purple, UIColor.yellow, UIColor.magenta, UIColor.cyan]
+
 let MenuMusicSound = "menu-music.wav"
 let GameMusicSound = "game-music.wav"
 let ExplosionSound = "explosion.aif"
@@ -27,3 +30,5 @@ let SwooshSound = "swoosh.wav"
 let GameOverSound = "game-over.wav"
 
 let muteKey = "mute"
+let SpyAgency = "Spy Agency"
+let SpyAgencyAcademy = "Spy Agency Academy"

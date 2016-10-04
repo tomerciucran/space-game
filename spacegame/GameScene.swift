@@ -58,6 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         
         if score.truncatingRemainder(dividingBy: 1000) == 0 {
             animateScoreLabel()
+            bg.run(SKAction.colorize(with: colors[Int(Util.random(min: 0, max: CGFloat(colors.count-1)))], colorBlendFactor: 0.5, duration: 5.0))
         }
     }
     
@@ -100,10 +101,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             emitterNode = StarfieldNode.initialize(frame, color: SKColor.darkGray, starSpeedY: 15, starsPerSecond: 4, starScaleFactor: 0.05)
             emitterNode.zPosition = -12
             addChild(emitterNode)
+            
+            bg.run(SKAction.colorize(with: colors[Int(Util.random(min: 0, max: CGFloat(colors.count)))], colorBlendFactor: 0.5, duration: 0.0))
         }
         timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(GameScene.updateTimer), userInfo: nil, repeats: true)
         
-        scoreLabel = SKLabelNode(fontNamed: "Spy Agency")
+        scoreLabel = SKLabelNode(fontNamed: SpyAgency)
         scoreLabel.horizontalAlignmentMode = .left
         scoreLabel.position = CGPoint(x: 20, y: size.height - 40)
         addChild(scoreLabel)
@@ -112,18 +115,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         physicsWorld.contactDelegate = self
         
         bg.zPosition = -13
+        bg.alpha = 0.5
         bg.size = frame.size
         bg.position = CGPoint(x: frame.midX, y: frame.midY)
         addChild(bg)
-        
-//        gradientOverlay.zPosition = -13
-//        gradientOverlay.size = CGSize(width: frame.size.width, height: frame.size.height / 2)
-//        gradientOverlay.position = CGPoint(x: frame.midX, y: 0)
-//        gradientOverlay.alpha = 0.5
-//        addChild(gradientOverlay)
-//        
-        bg.alpha = 0.5
-        bg.run(SKAction.sequence([SKAction.colorize(with: UIColor.blue, colorBlendFactor: 0.5, duration: 5), SKAction.colorize(with: UIColor.red, colorBlendFactor: 0.5, duration: 5), SKAction.colorize(with: UIColor.green, colorBlendFactor: 0.5, duration: 5)]))
         
         spaceShip = SpaceShipNode(position: CGPoint(x: size.width * 0.5, y: size.height * 0.17), color: UIColor.clear, size: CGSize(width: 151, height: 152))
         addChild(spaceShip)
@@ -170,7 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     }
     
     func animateScoreLabel() {
-        let label = SKLabelNode(fontNamed: "Spy Agency Academy")
+        let label = SKLabelNode(fontNamed: SpyAgencyAcademy)
         label.horizontalAlignmentMode = .center
         label.position = CGPoint(x: frame.midX, y: frame.midY + 20)
         label.text = "\(Int(score/1000)) km"
@@ -205,7 +200,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     func addMeteor() {
         
         let meteor = SKSpriteNode(imageNamed: meteorArray[Int(Util.random(min: 0, max: 2))])
-//        let meteor = SKSpriteNode(imageNamed: "meteorNew")
         let actualX: CGFloat
         actualX = getRandomLane()
 
@@ -271,6 +265,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         self.gameOverView.scoreLabel.text = self.scoreText
     }
     
+    func startGame() {
+        self.getReadyView.toggleView(true, show: false, delay: 1.0, completion: {
+            self.isGetReadyScreenVisible = false
+            self.isGameStarted = true
+            self.isGameOver = false
+            MusicPlayer.sharedInstance.setupBackgroundPlayer(url: Bundle.main.url(forResource: GameMusicSound, withExtension: nil)!)
+            MusicPlayer.sharedInstance.play()
+            self.run(SKAction.repeatForever(
+                SKAction.sequence([
+                    SKAction.run(self.addMeteor),
+                    SKAction.wait(forDuration: 1.5)
+                    ])
+            ))
+        })
+    }
+    
     // MARK: - GameOverDelegate
     
     func goToMainMenu() {
@@ -292,6 +302,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
             self.isGameStarted = false
             self.isGetReadyScreenVisible = true
             self.restart()
+            self.startGame()
         }
     }
     
@@ -301,6 +312,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         mainMenuView.toggleView(true, show: false) { () -> Void in
             self.getReadyView.toggleView(true, show: true, completion: { () -> Void in
                 self.isGetReadyScreenVisible = true
+                self.startGame()
             })
         }
     }
@@ -319,25 +331,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
         }
         
         let touchLocation = touch.location(in: self)
-        if isGetReadyScreenVisible {
-            getReadyView.toggleView(true, show: false, completion: { () -> Void in
-                self.isGetReadyScreenVisible = false
-                self.isGameStarted = true
-                self.isGameOver = false
-                MusicPlayer.sharedInstance.setupBackgroundPlayer(url: Bundle.main.url(forResource: GameMusicSound, withExtension: nil)!)
-                MusicPlayer.sharedInstance.play()
-                self.run(SKAction.repeatForever(
-                    SKAction.sequence([
-                        SKAction.run(self.addMeteor),
-                        SKAction.wait(forDuration: 1.5)
-                        ])
-                    ))
-            })
-        } else {
-            if isGameOver { return }
-            if let action = MusicPlayer.sharedInstance.actionForSound(name: SwooshSound) { run(action) }
-            spaceShip.screenTapAction(touchLocation)
-        }
+        if isGameOver { return }
+        if let action = MusicPlayer.sharedInstance.actionForSound(name: SwooshSound) { run(action) }
+        spaceShip.screenTapAction(touchLocation)
     }
     
     func explosion(_ pos: CGPoint, completionHandler: @escaping () -> Void) {
