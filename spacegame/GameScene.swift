@@ -318,7 +318,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, MainMenuDelegate, GameOverDe
     }
     
     func rate() {
-        
+        if let appUrl = URL(string: "https://itunes.apple.com/us/app/space-trip-game/id1076743525?l=tr&ls=1&mt=8") , UIApplication.shared.canOpenURL(appUrl) {
+            UIApplication.shared.openURL(appUrl)
+        }
     }
     
     func rankings() {
